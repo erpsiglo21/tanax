@@ -1,1 +1,0 @@
-from . import res_partner, sale, res_config_settings
