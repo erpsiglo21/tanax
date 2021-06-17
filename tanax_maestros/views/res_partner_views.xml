@@ -4,9 +4,9 @@
         <field name="name">res.partner.form.address</field>
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
-            <field name="street" position="before">
+            <xpath expr="//field[@name='street']" position="before">
                 <field name="canal_id" attrs="{'invisible':[('type','=','delivery')]}" />
-            </field>
+            </xpath>
         </field>
     </record>
 </odoo>
