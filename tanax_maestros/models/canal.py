@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from odoo import _, api, fields, models
 
 class Canal(models.Model):
@@ -6,7 +7,7 @@ class Canal(models.Model):
     _order = "name"
 
     name = fields.Char(required=True, translate=True)
-    partner_ids = fields.One2Many('res.partner', 'canal_id',
+    partner_ids = fields.One2many('res.partner', 'canal_id',
                                    string="Direcciones de despacho",
                                    readonly="true",
                                    domain=([('type','=','delivery')]))

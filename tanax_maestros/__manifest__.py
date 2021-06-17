@@ -7,6 +7,7 @@
     'author': u'ERP Siglo 21',
     'depends': ['base'],
     'data': [
+        "security/ir.model.access.csv",
         'views/res_partner_views.xml',
     ],
     'installable': True,
