@@ -5,7 +5,7 @@
     'license': 'AGPL-3',
     'summary': 'Agrega informacion necesaria en los maestros',
     'author': u'ERP Siglo 21',
-    'depends': ['base','contacts','product'],
+    'depends': ['base','contacts','stock'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
