@@ -8,7 +8,7 @@
 #
 ##############################################################################
 
-from openerp import api, fields, models, _
+from odoo import api, fields, models, _
 from odoo import SUPERUSER_ID
 
 
