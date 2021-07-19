@@ -14,7 +14,7 @@ from odoo import fields, models, api
 class Partner(models.Model):
     _inherit = "res.partner"
     
-    credit_limit_custom = fields.Float('Credit Limit')
+    credit_limit_custom = fields.Float('Credit Limit (sr)')
     credit_check = fields.Boolean('Check Credit')
     is_hold = fields.Boolean('Put on hold')
     blocking_limit = fields.Float(string="Blocking Limit")
