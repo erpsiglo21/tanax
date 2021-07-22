@@ -14,6 +14,7 @@ from odoo import SUPERUSER_ID
 
 class CreditLimitInfoWizard(models.TransientModel):
     _name = "credit.limit.wizard"
+    _description = "Credit limit wizard"
     
     partner_name = fields.Char('Partner Name')
     order_id = fields.Char('Current Order')
