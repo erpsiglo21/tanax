@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="model">stock.picking</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="fecha_agendamiento" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <field name="fecha_camion" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <field name="fecha_entrega" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

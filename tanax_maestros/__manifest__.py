@@ -9,9 +9,10 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/product_template_views.xml',
         'views/res_canal_views.xml',
         'views/res_partner_views.xml',
-        'views/product_template_views.xml',
+        'views/stock_picking_views.xml',
     ],
     'installable': True,
     'auto_install': False,
