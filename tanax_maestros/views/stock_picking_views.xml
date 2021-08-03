@@ -6,9 +6,9 @@
         <field name="model">stock.picking</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='origin']" position="after">
-                <field name="fecha_agendamiento" attrs="{'invisible': [('status', '!=', 'done')]}"/>
-                <field name="fecha_camion" attrs="{'invisible': [('status', '!=', 'done')]}"/>
-                <field name="fecha_entrega" attrs="{'invisible': [('status', '!=', 'done')]}"/>
+                <field name="fecha_agendamiento" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <field name="fecha_camion" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <field name="fecha_entrega" attrs="{'invisible': [('state', '!=', 'done')]}"/>
             </xpath>
         </field>
     </record>
