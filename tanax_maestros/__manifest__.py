@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Tanax Maestros',
-    'version': '0.3',
+    'version': '0.4',
     'license': 'AGPL-3',
     'summary': 'Agrega informacion necesaria en los maestros',
     'author': u'ERP Siglo 21',
