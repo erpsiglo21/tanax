@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <template id="report_invoice_document_tanax" inherit_id="account.report_invoice_document">
+    <template id="report_invoice_document_tanax" inherit_id="l10n_cl.report_invoice_document">
         <xpath expr="//th[@name='th_description']" position="before">
             <th name="th_code" class="text-left"><span>Code</span></th>
         </xpath>
@@ -10,8 +10,8 @@
         <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
             <td name="account_invoice_line_name"><span t-field="line.product_id.name" t-options="{'widget': 'text'}"/></td>
         </xpath>
-        <xpath expr="//th[@name='th_quantity']" position="before">
-            <th name="th_boxes" class="text-left"><span>Boxes</span></th>
+         <xpath expr="//th[@name='th_quantity']" position="before">
+            <th name="th_boxes" class="text-left"><span>Cajas</span></th>
         </xpath>
         <xpath expr="//td[3]" position="replace">
             <td class="text-right">
@@ -20,6 +20,9 @@
             <td class="text-right">
                 <span t-esc="line.product_uom_id._compute_quantity(line.quantity, line.env.ref('uom.product_uom_unit')) if 'Cj' in line.product_uom_id.name else line.quantity"/>
             </td>
+        </xpath>
+        <xpath expr="//span[@t-field='line.l10n_latam_price_unit']" position="replace">
+            <span class="text-nowrap" t-esc="line.product_uom_id._compute_price(line.l10n_latam_price_unit, line.env.ref('uom.product_uom_unit')) if 'Cj' in line.product_uom_id.name else line.l10n_latam_price_unit"/>
         </xpath>
     </template>
 </odoo>
