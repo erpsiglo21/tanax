@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="delivery_guide_document_tanax" inherit_id="l10n_cl_edi_stock.delivery_guide_document">
+        <xpath expr="//th[@name='th_product']" position="after">
+            <th name="th_boxes" class="text-left"><span>Cajas</span></th>
+        </xpath>
+        <xpath expr="//td[2]" position="after">
+            <td class="text-right">
+                <span t-if="line.sale_line_id.product_uom and 'Cj' in line.sale_line_id.product_uom.name" t-esc="line.product_uom._compute_quantity(line.quantity_done,  line.sale_line_id.product_uom)"></span>
+            </td>
+        </xpath>.
+    </template>
+</odoo>
