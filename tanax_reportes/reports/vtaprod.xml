@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tanax_vtaprod_pivot" model="ir.ui.view">
+        <field name="name">tanax.vtaprod.pivot</field>
+        <field name="model">tanax.vtaprod</field>
+        <field name="arch" type="xml">
+            <tree string="VTAProd" create="false" edit="false" delete="false" duplicate="false" import="false">
+                <field name="tipo"/>
+                <field name="folio"/>
+                <field name="origen"/>
+                <field name="fecha_emision"/>
+                <field name="partner_name"/>
+                <field name="cliente"/>
+                <field name="direccion"/>
+                <field name="canal"/>
+                <field name="codigo"/>
+                <field name="descripcion"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="neto"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tanax_vtaprod_action" model="ir.actions.act_window">
+        <field name="name">Vtaprod</field>
+        <field name="res_model">tanax.vtaprod</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="tanax_vtaprod"
+        name="vtaprod"
+        parent="sale.menu_sale_report"
+        action="tanax_vtaprod_action"
+        sequence="1"/>
+</odoo>
