@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tanax_leadtime_tree" model="ir.ui.view">
+        <field name="name">tanax.leadtime.tree</field>
+        <field name="model">tanax.leadtime</field>
+        <field name="arch" type="xml">
+            <tree string="Leadtime" create="false" edit="false" delete="false" duplicate="false" import="false">
+                <field name="sale_order"/>
+                <field name="order_date"/>
+                <field name="invoice"/>
+                <field name="invoice_date"/>
+                <field name="invoice_date_due"/>
+                <field name="delivery"/>
+                <field name="delivery_date"/>
+                <field name="fecha_agendamiento"/>
+                <field name="fecha_camion"/>
+                <field name="fecha_entrega"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tanax_leadtime_action" model="ir.actions.act_window">
+        <field name="name">Leadtime</field>
+        <field name="res_model">tanax.leadtime</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="tanax_leadtime"
+        name="leadtime"
+        parent="sale.menu_sale_report"
+        action="tanax_leadtime_action"
+        sequence="2"/>
+</odoo>

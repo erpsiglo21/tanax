@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Tanax Reportes',
-    'version': '0.3',
+    'version': '0.4',
     'license': 'AGPL-3',
     'summary': 'Reporteria de tanax',
     'author': u'ERP Siglo 21',
@@ -10,6 +10,7 @@
         'security/ir.model.access.csv',
         'reports/delivery_guide_document.xml',
         'reports/report_invoice.xml',
+        'reports/leadtime.xml',
         'reports/vtaprod.xml',
     ],
     'installable': True,
