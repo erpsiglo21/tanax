@@ -12,4 +12,16 @@
             </xpath>
         </field>
     </record>
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="model">stock.picking</field>
+        <field name="arch" type="xml">
+            <field name="json_popover" position="after">
+                <field name="fecha_agendamiento" optional="hide"/>
+                <field name="fecha_camion" optional="hide"/>
+                <field name="fecha_entrega" optional="hide"/>
+            </field>
+        </field>
+    </record>
 </odoo>

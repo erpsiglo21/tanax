@@ -22,7 +22,7 @@ class VtaProd(models.Model):
     descripcion = fields.Char('Descripcion Producto', readonly=True)
     uom_id = fields.Many2one('uom.uom', 'UM', readonly=True)
     quantity = fields.Float('Cantidad', readonly=True)
-    currency_id = fields.Many2one('res_currency', 'Moneda', readonly=True)
+    currency_id = fields.Many2one('res.currency', 'Moneda', readonly=True)
     price_unit = fields.Monetary('Precio', readonly=True)
     neto = fields.Monetary('Neto', readonly=True)
 
@@ -62,5 +62,6 @@ select amvl.id as id
 	       on prd.id = amvl.product_id
 	    inner join product_template tpl
 	       on tpl.id = prd.product_tmpl_id
- where move_type = 'out_invoice'
+ where amv.move_type in ('out_invoice','out_refund')
+   and amv.state = 'posted'
          """))
