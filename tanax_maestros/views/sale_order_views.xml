@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="oc_cliente"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="oc_cliente"/>
+            </field>
+        </field>
+    </record>
+</odoo>
