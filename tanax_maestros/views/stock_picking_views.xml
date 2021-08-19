@@ -17,7 +17,11 @@
         <field name="inherit_id" ref="stock.vpicktree" />
         <field name="model">stock.picking</field>
         <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="client_order_ref"/>
+            </field>
             <field name="json_popover" position="after">
+                <field name="client_order_ref"/>
                 <field name="fecha_agendamiento" optional="hide"/>
                 <field name="fecha_camion" optional="hide"/>
                 <field name="fecha_entrega" optional="hide"/>
