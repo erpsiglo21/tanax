@@ -21,3 +21,5 @@ class StockPicking(models.Model):
         for picking in self:
             if picking.sale_id:
                 picking.client_order_ref = picking.sale_id.client_order_ref
+            else:
+                picking.client_order_ref = None
