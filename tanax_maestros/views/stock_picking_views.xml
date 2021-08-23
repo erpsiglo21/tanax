@@ -19,6 +19,7 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="client_order_ref"/>
+                <field name="invoice_number"/>
             </field>
             <field name="json_popover" position="after">
                 <field name="fecha_agendamiento" optional="hide"/>
