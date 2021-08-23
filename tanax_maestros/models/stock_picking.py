@@ -6,13 +6,13 @@ class StockPicking(models.Model):
 
     client_order_ref = fields.Char('OC Cliente', compute='_compute_oc_cliente', store=False)
 
-    fecha_agendamiento = fields.Datetime(
+    fecha_agendamiento = fields.Date(
         'Fecha agendamiento', 
         help="Fecha de agendamiento")
-    fecha_camion = fields.Datetime(
+    fecha_camion = fields.Date(
         'Fecha partida camion', 
         help="Fecha en que se inicio el despacho")
-    fecha_entrega = fields.Datetime(
+    fecha_entrega = fields.Date(
         'Fecha real de entrega', 
         help="Fecha en que se realizo la entrega al cliente")
 
