@@ -5,6 +5,9 @@
         <field name="model">tanax.leadtime</field>
         <field name="arch" type="xml">
             <tree string="Leadtime" create="false" edit="false" delete="false" duplicate="false" import="false">
+                <field name="partner_vat"/>
+                <field name="partner_name"/>
+                <field name="partner_address"/>
                 <field name="sale_order"/>
                 <field name="order_date"/>
                 <field name="invoice"/>
