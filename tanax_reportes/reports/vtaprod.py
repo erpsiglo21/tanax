@@ -12,7 +12,7 @@ class VtaProd(models.Model):
     tipo = fields.Char('TD', readonly=True)
     folio = fields.Integer('Numero documento', readonly=True)
     origen = fields.Integer('Numero referencia', readonly=True)
-    fecha_emision = fields.Datetime('Fecha', readonly=True)
+    fecha_emision = fields.Date('Fecha', readonly=True)
     partner_id = fields.Many2one('res.partner', 'Cliente', readonly=True)
     partner_name = fields.Char('Descripcion Cliente', readonly=True)
     cliente = fields.Integer('Codigo Cliente', readonly=True)
