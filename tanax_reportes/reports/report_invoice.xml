@@ -2,7 +2,7 @@
 <odoo>
     <template id="report_invoice_document_tanax" inherit_id="l10n_cl.report_invoice_document">
         <xpath expr="//th[@name='th_description']" position="before">
-            <th name="th_code" class="text-left"><span>Code</span></th>
+            <th name="th_code" class="text-left"><span>Codigo</span></th>
         </xpath>
         <xpath expr="//td[@name='account_invoice_line_name']" position="before">
             <td name="td_code" class="text-left"><span t-field="line.product_id.code" t-options="{'widget': 'text'}"/></td>
@@ -10,19 +10,28 @@
         <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
             <td name="account_invoice_line_name"><span t-field="line.product_id.name" t-options="{'widget': 'text'}"/></td>
         </xpath>
-         <xpath expr="//th[@name='th_quantity']" position="before">
+        <xpath expr="//th[@name='th_quantity']" position="before">
+            <t t-set="cant_boxes" t-value="0"/>
             <th name="th_boxes" class="text-left"><span>Cajas</span></th>
         </xpath>
         <xpath expr="//td[3]" position="replace">
             <td class="text-right">
                 <span t-esc="line.quantity if 'Cj' in line.product_uom_id.name else ''"/>
+                <t t-set="cant_boxes" t-value="cant_boxes + line.quantity if 'Cj' in line.product_uom_id.name else cant_boxes"/>
             </td>
             <td class="text-right">
                 <span t-esc="line.product_uom_id._compute_quantity(line.quantity, line.env.ref('uom.product_uom_unit')) if 'Cj' in line.product_uom_id.name else line.quantity"/>
-            </td>
+           </td>
         </xpath>
         <xpath expr="//span[@t-field='line.l10n_latam_price_unit']" position="replace">
             <span class="text-nowrap" t-esc="line.product_uom_id._compute_price(line.l10n_latam_price_unit, line.env.ref('uom.product_uom_unit')) if 'Cj' in line.product_uom_id.name else line.l10n_latam_price_unit"/>
+        </xpath>
+        <xpath expr="//p[@name='comment']" position="after">
+            <p>
+                Cajas: <span t-esc="cant_boxes"/>
+                Peso: <spant t-esc="sum(lines.mapped(lambda line: line.product_uom_id._compute_quantity(line.quantity, line.product_id.uom_id) * (line.product_id.weight or 0.0)))"/> kg
+                Volumen: <spant t-esc="sum(lines.mapped(lambda line: line.product_uom_id._compute_quantity(line.quantity, line.product_id.uom_id) * (line.product_id.volume or 0.0)))"/> m3
+            </p>
         </xpath>
     </template>
 </odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_manifiesto_wizard" model="ir.ui.view">
+        <field name="name">view.manifiesto.wizard</field>
+        <field name="model">tanax.manifiesto.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Manifiesto">
+                <group>
+                    <field name="partner_id"/>
+                    <field name="manifest_date"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object"	string="Generar manifiesto" class="oe_highlight" />
+                    <button string="Cancel" class="oe_highlight" special="cancel" />
+                </footer>
+            </form>
+		</field>
+	</record>
+    <record id="action_manifiesto_wizard" model="ir.actions.act_window">
+        <field name="name">Crear manifiesto</field>
+        <field name="res_model">tanax.manifiesto.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">action</field>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>
