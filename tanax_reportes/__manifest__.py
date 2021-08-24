@@ -13,7 +13,7 @@
         'reports/report_invoice.xml',
         'reports/report_picking.xml',
         'reports/vtaprod.xml',
-        'wizards/manifiesto.xml',
+#        'wizards/manifiesto.xml',
     ],
     'installable': True,
     'auto_install': False,
