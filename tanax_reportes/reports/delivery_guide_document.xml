@@ -4,10 +4,24 @@
         <xpath expr="//th[@name='th_product']" position="after">
             <th name="th_boxes" class="text-left"><span>Cajas</span></th>
         </xpath>
+        <xpath expr="//t[@t-set='total_line_amounts']" position="after">
+            <t t-set="cant_boxes" t-value="0"/>
+        </xpath>
         <xpath expr="//td[2]" position="after">
             <td class="text-right">
-                <span t-if="line.sale_line_id.product_uom and 'Cj' in line.sale_line_id.product_uom.name" t-esc="line.product_uom._compute_quantity(line.quantity_done,  line.sale_line_id.product_uom)"></span>
+                <t t-if="line.sale_line_id and line.sale_line_id.product_uom and 'Cj' in line.sale_line_id.product_uom.name">
+                    <t t-set="boxes" t-value="line.product_uom._compute_quantity(line.quantity_done,  line.sale_line_id.product_uom)"/>
+                    <t t-set="cant_boxes" t-value="cant_boxes + boxes"/>
+                    <span t-esc="boxes"></span>
+                </t>
             </td>
-        </xpath>.
+        </xpath>
+        <xpath expr="//p[@t-field='o.note']" position="after">
+            <p>
+                Cajas: <span t-esc="cant_boxes"/>
+                Peso: <spant t-field="o.shipping_weight"/> kg
+                Volumen: <spant t-esc="sum(o.move_lines.mapped(lambda line: line.quantity_done * line.product_id.volume))"/> m3
+            </p>
+        </xpath>
     </template>
 </odoo>

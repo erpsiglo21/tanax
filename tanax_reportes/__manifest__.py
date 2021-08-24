@@ -9,9 +9,11 @@
     'data': [
         'security/ir.model.access.csv',
         'reports/delivery_guide_document.xml',
-        'reports/report_invoice.xml',
         'reports/leadtime.xml',
+        'reports/report_invoice.xml',
+        'reports/report_picking.xml',
         'reports/vtaprod.xml',
+        'wizards/manifiesto.xml',
     ],
     'installable': True,
     'auto_install': False,
