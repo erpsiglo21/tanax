@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vpicktree_s21_tanax_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="vu_state"
+                       widget="badge"
+                       decoration-danger="vu_state == 'no_vu'"
+                       decoration-success="vu_state == 'vu'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
