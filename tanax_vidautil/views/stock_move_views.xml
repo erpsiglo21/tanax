@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_move_line_operation_tree_s21_tanax" model="ir.ui.view">
+        <field name="name">view.stock.move.line.operation.tree.s21.tanax</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_name']" position="after" >
+                <field name="is_under_customer_percentage" invisible="1"/>
+                <field name="is_under_percentage" invisible="1"/>
+                <field name="requirement_percentage"/>
+            </xpath>
+            <xpath expr="//field[@name='expiration_date']" position="before" >
+                <field name="production_date" force_save="1"
+                       invisible="1"
+                       attrs="{
+                    'column_invisible': ['|', ('parent.use_expiration_date', '!=', True), ('parent.picking_code', '!=', 'incoming')],
+                    'readonly': [('picking_type_use_existing_lots', '=', True)],
+                }"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_stock_move_line_detailed_operation_tree_expiry" model="ir.ui.view">
+        <field name="name">stock.move.line.operations.inherit.tree</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_name']" position="after">
+                <field name="is_under_customer_percentage" invisible="1"/>
+                <field name="requirement_percentage"/>
+                <field name="is_under_percentage" invisible="1"/>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+              <attribute name="decoration-danger">
+                  (qty_done&gt;product_uom_qty or is_under_percentage==True) and state!='done' and parent.picking_type_code != 'incoming'
+              </attribute>
+          </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+  <record id="view_production_lot_form_s21_tanax_inherit" model="ir.ui.view">
+        <field name="name">view.production.lot.form.s21.tanax.inherit</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="product_expiry.view_move_form_expiry"/>
+      <field name="arch" type="xml">
+          <xpath expr="//page[@name='expiration_dates']/group/group/field[@name='expiration_date']"
+                   position="before">
+                <field name="production_date" invisible="1"/>
+            </xpath>
+      </field>
+  </record>
+</odoo>
